@@ -3,7 +3,7 @@ const router = express.Router();
 const Cattle = require("../models/cattleModel");
 //GET all the cattle
 router.get("/", (req, res) => {
-  res.json({ message: "GET all the workouts" });
+  res.json({ message: "GET all the cattle" });
 });
 
 //GET a single type of cattle
