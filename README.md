@@ -24,6 +24,8 @@
 
 ## _Try it on your own (in your terminal/git bash):_
 
+<br>
+
 - Step 1: `git clone https://github.com/sanketghosh/cattle-tracker.git`
 - Step 2: `cd cattle-tracker`
 - Step 3: `cd backend`
