@@ -1,40 +1,31 @@
 const express = require("express");
 const router = express.Router();
-const Cattle = require("../models/cattleModel");
-//GET all the cattle
-router.get("/", (req, res) => {
-  res.json({ message: "GET all the cattle" });
-});
+const {
+  getAllCattle,
+  getSingleCattle,
+  createCattle,
+  deleteCattle,
+  updateCattle,
+} = require("../controllers/cattleControllers");
 
-//GET a single type of cattle
-router.get("/:id", (req, res) => {
-  res.json({ message: "GET a single type of cattle" });
-});
+//  GET all the cattle
 
-//POST a new type of cattle
-router.post("/", async (req, res) => {
-  const { title, totalWeight, carsLoaded } = req.body;
-  try {
-    const cattle = await Cattle.create({
-      title,
-      totalWeight,
-      carsLoaded,
-    });
-    res.status(200).json(cattle);
-  } catch (error) {
-    res.status(400).json({ error: error.message });
-  }
-  res.json({ message: "POST a new type of cattle" });
-});
+router.get("/", getAllCattle);
 
-//DELETE a type of cattle
-router.delete("/:id", (req, res) => {
-  res.json({ message: "DELETE a type of cattle" });
-});
+//  GET a single type of cattle
 
-//UPDATE a type of cattle
-router.patch("/:id", (req, res) => {
-  res.json({ message: "UPDATE a type of cattle" });
-});
+router.get("/:id", getSingleCattle);
+
+//  POST/CREATE a new type of cattle
+
+router.post("/", createCattle);
+
+//  DELETE a type of cattle
+
+router.delete("/:id", deleteCattle);
+
+//  UPDATE a type of cattle
+
+router.patch("/:id", updateCattle);
 
 module.exports = router;
