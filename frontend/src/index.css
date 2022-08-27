@@ -3,7 +3,7 @@
 
 /* layout */
 :root {
-  --primary: #ff5b0f;
+  --primary: #6915d8;
   --error: #ff1100;
 }
 body {
@@ -62,15 +62,20 @@ header a {
   font-size: 0.9em;
   color: #555;
 }
-.cattle-details span {
+.cattle-details button {
   position: absolute;
   top: 20px;
   right: 20px;
   cursor: pointer;
-  background: #f1f1f1;
-  padding: 6px;
-  border-radius: 50%;
-  color: #333;
+  background: var(--primary);
+  padding: 7px 10px;
+  border-radius: 3px;
+  border: none;
+  color: #ffefef;
+}
+.cattle-details button:hover {
+  background-color: #8835f5;
+  transition: 0.3s;
 }
 
 /* new workout form */
@@ -100,7 +105,7 @@ form button {
   cursor: pointer;
 }
 form button:hover {
-  background-color: #ff7130;
+  background-color: #8835f5;
   transition: 0.3s;
 }
 div.error {

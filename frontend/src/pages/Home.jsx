@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import CattleDetails from "../components/CattleDetails";
 import CattleForm from "../components/CattleForm";
+import { useCattleContext } from "../hooks/useCattleContext";
 
 export default function Home() {
-  const [cattle, setCattle] = useState(null);
+  // const [cattle, setCattle] = useState(null);
+  const { cattle, dispatch } = useCattleContext();
 
   useEffect(() => {
     const fetchCattle = async () => {
@@ -11,7 +13,8 @@ export default function Home() {
       const json = await response.json();
 
       if (response.ok) {
-        setCattle(json);
+        // setCattle(json);
+        dispatch({ type: "SET_CATTLE", payload: json });
       }
     };
     fetchCattle();

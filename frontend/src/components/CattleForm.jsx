@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useCattleContext } from "../hooks/useCattleContext";
 
 export default function CattleForm() {
+  const { dispatch } = useCattleContext();
   const [title, setTitle] = useState("");
   const [totalWeight, setTotalWeight] = useState();
   const [carsLoaded, setCarsLoaded] = useState();
@@ -40,7 +42,8 @@ export default function CattleForm() {
       setTotalWeight(0);
       setCarsLoaded(0);
       setError(null);
-      console.log("new workout added");
+      console.log("new workout added", json);
+      dispatch({ type: "CREATE_CATTLE", payload: json });
     }
   }
 

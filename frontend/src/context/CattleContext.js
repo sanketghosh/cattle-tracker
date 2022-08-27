@@ -1,6 +1,6 @@
 import { createContext, useReducer } from "react";
 
-const CattleContext = createContext();
+export const CattleContext = createContext();
 
 export const cattleReducer = (state, action) => {
   switch (action.type) {
@@ -12,6 +12,12 @@ export const cattleReducer = (state, action) => {
       return {
         cattle: [action.payload, ...state.cattle],
       };
+    case "DELETE_CATTLE":
+      return {
+        cattle: state.cattle.filter((c) => c._id !== action.payload._id),
+      };
+    default:
+      return state;
   }
 };
 
@@ -22,5 +28,9 @@ export function CattleContextProvider({ children }) {
 
   // dispatch({ type: "SET_CATTLE", payload: [{}, {}] });
 
-  return <CattleContext.Provider>{children}</CattleContext.Provider>;
+  return (
+    <CattleContext.Provider value={{ ...state, dispatch }}>
+      {children}
+    </CattleContext.Provider>
+  );
 }
