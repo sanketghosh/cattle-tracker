@@ -66,15 +66,18 @@ header a {
   position: absolute;
   top: 20px;
   right: 20px;
-  cursor: pointer;
-  background: var(--primary);
-  padding: 7px 10px;
-  border-radius: 3px;
+  background-color: #fff;
   border: none;
-  color: #ffefef;
 }
-.cattle-details button:hover {
-  background-color: #8835f5;
+
+.cattle-details button svg {
+  height: 30px;
+  width: 20px;
+  cursor: pointer;
+  fill: #b9b9b9;
+}
+.cattle-details button svg:hover {
+  fill: #fa6b6b;
   transition: 0.3s;
 }
 

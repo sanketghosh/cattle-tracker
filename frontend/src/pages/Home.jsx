@@ -18,7 +18,7 @@ export default function Home() {
       }
     };
     fetchCattle();
-  }, []);
+  }, [dispatch]);
   return (
     <div className="home">
       <div className="cattle">

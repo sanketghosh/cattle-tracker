@@ -29,6 +29,23 @@ const getSingleCattle = async (req, res) => {
 const createCattle = async (req, res) => {
   const { title, totalWeight, carsLoaded } = req.body;
 
+  let emptyFields = [];
+
+  if (!title) {
+    emptyFields.push("title");
+  }
+  if (!totalWeight) {
+    emptyFields.push("total weight");
+  }
+  if (!carsLoaded) {
+    emptyFields.push("cars loaded");
+  }
+  if (emptyFields.length > 0) {
+    return res
+      .status(400)
+      .json({ error: "Please fill in all the fields", emptyFields });
+  }
+
   //add this document to the database
   try {
     const cattle = await Cattle.create({
